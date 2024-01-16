@@ -19,7 +19,7 @@ export default function Terminal() {
   return (
     <>
       {TerminalShow ? (
-        <section className="absolute bg-[#252526] text-white bottom-0 w-full">
+        <section className="h-screen bg-[#252526] text-white bottom-0 w-full">
           <div className="h-10 flex justify-between items-center px-4 bg-[#3C3C3C]">
             <ul className="flex items-center gap-5 text-[10px]">
               <li>PROBLEMS</li>
@@ -49,11 +49,11 @@ export default function Terminal() {
             <div className="py-8">
               <h1>
                 <span className="text-green-400">
-                  B3ASTM0D3@DESKTOP-TD14BI9
+                  B3ASTM0D3@DESKTOP-TD32BI91
                 </span>
                 MINGW64
                 <span className="text-yellow-300">
-                  /d/Project/final-portfolio
+                  /d/Project/final-visual-studo-clone
                 </span>
                 (main)
               </h1>
@@ -83,7 +83,7 @@ export default function Terminal() {
               </h2>
             </div>
             <div>
-              <ul className="bg-[#3C3C3C]  pl-[14px] w-[165px] space-y-2 pt-4 border-l border-l-gray-500 h-full cursor-pointer">
+              <ul className="bg-[#3C3C3C] h-screen pl-[14px] w-[165px] space-y-2 pt-4 border-l border-l-gray-500 cursor-pointer">
                 <li className="flex items-center gap-2">
                   <VscTerminal />
                   <span>Bash</span>

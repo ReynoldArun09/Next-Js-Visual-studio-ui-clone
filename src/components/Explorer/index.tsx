@@ -25,7 +25,6 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarShortcut,
   MenubarTrigger,
 } from "../ui/menubar";
 import { useStore } from "@/hooks/useStore";
@@ -44,7 +43,7 @@ export default function Explorer() {
   return (
     <>
       {ExplorerShow ? (
-        <div className="w-[280px] bg-[#252526] border-r text-white border-r-gray-700">
+        <div className="bg-[#252526] border-r w-full h-full text-white border-r-gray-700">
           <div className="flex justify-between py-2 px-4 items-center">
             <h1>Explorer</h1>
             <div>
@@ -258,7 +257,7 @@ export default function Explorer() {
                 </li>
                 <li className="flex items-center gap-2 ml-5 mt-[1px]">
                   <SiTypescript className="text-blue-400" />
-                  <span>next-enb.d.ts</span>
+                  <span>next-env.d.ts</span>
                 </li>
                 <li className="flex items-center gap-2 ml-5 mt-[1px]">
                   <DiJsBadge className="text-yellow-300" />

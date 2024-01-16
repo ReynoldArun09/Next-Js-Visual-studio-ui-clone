@@ -1,3 +1,5 @@
+'use client'
+
 import { VscClose } from "react-icons/vsc";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FaDocker } from "react-icons/fa";
@@ -11,12 +13,21 @@ import {
 } from "react-icons/vsc";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Badge, badgeVariants } from "@/components/ui/badge";
+import { badgeVariants } from "@/components/ui/badge";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "../ui/resizable";
+import { useStore } from "@/hooks/useStore";
 
 export default function Editor() {
+  const TerminalShow = useStore((state:any) => state.TerminalShow)
+
   return (
-    <section className="relative w-full bg-[#252526]">
-      <div className="flex justify-around mt-[100px] relative">
+    <ResizablePanelGroup
+      direction="vertical"
+      className="h-screen"
+    >
+      <ResizablePanel defaultSize={75}>
+      <section className="relative w-full h-screen bg-[#252526]">
+      <div className="flex justify-around pt-[100px] relative">
         <div className="text-white">
           <h1 className="text-3xl">Visual Studio Code</h1>
           <h2 className="text-2xl mt-2">Editing evolved</h2>
@@ -127,7 +138,15 @@ export default function Editor() {
           Show welcome page on startup
         </h1>
       </div>
-      <Terminal />
     </section>
+      </ResizablePanel>
+      <ResizableHandle />
+      {TerminalShow ? (
+        <ResizablePanel defaultSize={35}>
+        <Terminal />
+      </ResizablePanel>
+      ): ''}
+    </ResizablePanelGroup>
+    
   );
 }

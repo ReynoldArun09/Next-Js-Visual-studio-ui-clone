@@ -9,8 +9,8 @@ export default function Rightbar() {
   return (
     <>
       {SidebarShow ? (
-        <section className="bg-[#252526] w-[200px]  text-white border-l border-l-gray-700">
-          <div className="w-fit ml-[80%] mt-3">
+        <section className="bg-[#252526] h-full  text-white border-l border-l-gray-700">
+          <div className="w-fit ml-[80%] pt-3">
             <VscChromeClose onClick={ToggleSidebar} />
           </div>
           <div className="flex h-full text-center">

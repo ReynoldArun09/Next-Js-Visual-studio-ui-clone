@@ -124,7 +124,7 @@ export default function File() {
               Close Window <MenubarShortcut>Alt+F4</MenubarShortcut>
             </MenubarItem>
             <MenubarSeparator />
-            <MenubarItem>Exist</MenubarItem>
+            <MenubarItem>Exit</MenubarItem>
           </MenubarContent>
     </>
   )

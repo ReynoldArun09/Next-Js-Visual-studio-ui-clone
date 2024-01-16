@@ -20,7 +20,7 @@ import { useStore } from "@/hooks/useStore";
 export default function Sidebar() {
   const ToggleExplorer = useStore((state: any) => state.ToggleExplorer);
   return (
-    <section className="flex flex-col bg-[#3C3C3C] text-white justify-between h-[92vh] w-fit px-3">
+    <section className="flex flex-col bg-[#3C3C3C] text-white justify-between h-[92vh] px-3">
       <ul className="flex flex-col mt-4 gap-8">
         <CustomTooltip title="Explorer (Ctrl+Shift+E)">
           <VscFiles size={25} onClick={ToggleExplorer}/>
