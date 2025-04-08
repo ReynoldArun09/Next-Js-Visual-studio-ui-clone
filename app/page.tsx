@@ -4,11 +4,7 @@ import Explorer from "@/components/Explorer";
 import Rightbar from "@/components/Rightbar";
 import Sidebar from "@/components/Sidebar";
 
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { useStore } from "@/hooks/useStore";
 
 export default function Root() {
