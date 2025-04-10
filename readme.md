@@ -4,7 +4,7 @@ This project is a Visual Studio Code UI clone built entirely with modern web tec
 
 ## 🔗 Links
 
-- Live Demo:
+- Live Demo: https://visual-studio-ui-clone.netlify.app
 - Repository: https://github.com/ReynoldArun09/Next-Js-Visual-studio-ui-clone
 
 ## 🛠️ Technologies Used
