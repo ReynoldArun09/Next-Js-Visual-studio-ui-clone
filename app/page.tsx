@@ -1,14 +1,14 @@
 "use client";
-import Editor from "@/components/Editor";
+
 import Explorer from "@/components/Explorer";
 import Rightbar from "@/components/Rightbar";
 import Sidebar from "@/components/Sidebar";
-
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
-import { useStore } from "@/hooks/useStore";
+import { useStore } from "@/store/useStore";
+import Editor from "../components/Editor";
 
 export default function Root() {
-  const SidebarShow = useStore((state: any) => state.SidebarShow);
+  const SidebarShow = useStore((state) => state.SidebarShow);
   return (
     <main className="h-full">
       <ResizablePanelGroup direction="horizontal" className="border">
@@ -22,11 +22,13 @@ export default function Root() {
         <ResizablePanel defaultSize={75}>
           <Editor />
         </ResizablePanel>
-        <ResizableHandle />
         {SidebarShow ? (
-          <ResizablePanel defaultSize={10}>
-            <Rightbar />
-          </ResizablePanel>
+          <>
+            <ResizableHandle />
+            <ResizablePanel defaultSize={10}>
+              <Rightbar />
+            </ResizablePanel>
+          </>
         ) : (
           ""
         )}

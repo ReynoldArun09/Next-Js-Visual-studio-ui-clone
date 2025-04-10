@@ -1,68 +1,42 @@
-'use client'
+"use client";
 
 import CustomTooltip from "@/components/Custom/CustomTooltip";
-import { useStore } from "@/hooks/useStore";
+import { useStore, useStoreActions } from "@/store/useStore";
 import {
-  VscChromeClose,
-  VscChromeMaximize,
-  VscChromeMinimize,
-  VscLayoutSidebarRightOff,
-  VscLayoutSidebarRight,
   VscLayoutPanel,
-  VscLayout,
   VscLayoutPanelOff,
+  VscLayoutSidebarLeft,
   VscLayoutSidebarLeftOff,
-  VscLayoutSidebarLeft
+  VscLayoutSidebarRight,
+  VscLayoutSidebarRightOff,
 } from "react-icons/vsc";
+import { rightCornerButtons } from "../_constants";
 
 export default function RightSide() {
-  const TerminalShow = useStore((state:any) => state.TerminalShow) as boolean
-  const ToggleTerminal = useStore((state:any) => state.ToggleTerminal)
-  const ExplorerShow = useStore((state: any) => state.ExplorerShow);
-  const ToggleExplorer = useStore((state: any) => state.ToggleExplorer);
-  const ToggleSidebar = useStore((state:any) => state.ToggleSidebar)
-  const SidebarShow = useStore((state:any) => state.SidebarShow )
+  const { ToggleExplorer, ToggleSidebar, ToggleTerminal } = useStoreActions();
+
+  const explorer = useStore((state) => state.ExplorerShow);
+  const terminal = useStore((state) => state.TerminalShow);
+  const rightbar = useStore((state) => state.SidebarShow);
+
   return (
-    <nav className="flex gap-5">
-      <ul className="flex gap-5">
+    <div className="flex items-center gap-5 pr-2">
+      <div className="flex items-center gap-4">
         <CustomTooltip title="Toggle Primary Side bar (Ctrl+B)">
-          <span onClick={ToggleExplorer}>
-            {ExplorerShow ? (
-              <VscLayoutSidebarLeft />
-            ): (
-              <VscLayoutSidebarLeftOff />
-            )}
-          </span>
+          <span onClick={ToggleExplorer}> {explorer ? <VscLayoutSidebarLeft /> : <VscLayoutSidebarLeftOff />}</span>
         </CustomTooltip>
-        <CustomTooltip title="Toggle Panel(Ctrl+J)">
-          <span onClick={ToggleTerminal}>
-          {TerminalShow ? (<VscLayoutPanel />) : (
-            <VscLayoutPanelOff />
-          )}
-          </span>
+        <CustomTooltip title="Toggle Terminal Panel(Ctrl+J)">
+          <span onClick={ToggleTerminal}>{terminal ? <VscLayoutPanel /> : <VscLayoutPanelOff />}</span>
         </CustomTooltip>
-        <CustomTooltip title="Toggle Panel(Ctrl+J)">
-          <span onClick={ToggleSidebar}>
-          {SidebarShow ? (<VscLayoutSidebarRight />) : (
-            <VscLayoutSidebarRightOff />
-          )}
-          </span>
+        <CustomTooltip title="Toggle Sidebar Panel(Ctrl+K)">
+          <span onClick={ToggleSidebar}> {rightbar ? <VscLayoutSidebarRight /> : <VscLayoutSidebarRightOff />}</span>
         </CustomTooltip>
-        <li>
-          <VscLayout />
-        </li>
-      </ul>
-      <ul className="flex gap-3">
-        <li>
-          <VscChromeMinimize />
-        </li>
-        <li>
-          <VscChromeMaximize />
-        </li>
-        <li>
-          <VscChromeClose />
-        </li>
-      </ul>
-    </nav>
+      </div>
+      <div className="flex gap-2 items-center">
+        {rightCornerButtons.map((btn, index) => (
+          <span key={index}>{btn.icon}</span>
+        ))}
+      </div>
+    </div>
   );
 }
