@@ -1,18 +1,12 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { TooltipProviderProps, TooltipTriggerProps } from "@radix-ui/react-tooltip";
-
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { TooltipProviderProps } from "@radix-ui/react-tooltip";
 
 interface TooltipProps extends TooltipProviderProps {
-    children: React.ReactNode,
-    title: string,
+  children: React.ReactNode;
+  title: string;
 }
 
-export default function CustomTooltip({children, title, ...props}: TooltipProps) {
+export default function CustomTooltip({ children, title, ...props }: TooltipProps) {
   return (
     <>
       <TooltipProvider {...props}>
